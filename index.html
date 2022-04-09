@@ -10,6 +10,71 @@
     <meta name="robots" content="index">
 </head>
 <body>
-    
+    <h1 class="title">Liste de choses à faire</h1>
+
+    <div class="all-tasks">
+        <h2 class="task-list-title">Mes listes</h2>
+        <ul class="task-list">
+            <li class="active-list">Youtube</li>
+            <li>Work</li>
+            <li>Grocery</li>
+        </ul>
+        <form action="">
+            <input type="text" class="new list" placeholder="Nouvelle liste" aria-label="Nouvelle liste">
+            <button class="btn list" aria-label="Créer nouvelle liste">+</button>
+        </form>
+    </div>
+
+    <div class="todo-list">
+        <div class="todo-header">
+            <h2 class="list-title">Youtube</h2>
+            <p class="task-count">3 tâches restantes</p>
+        </div>
+
+        <div class="todo-body">
+            <div class="tasks">
+
+                <div class="task">
+                    <input type="checkbox" id="task-1">
+                    <label for="task-1">
+                        <span class="custom-checkbox"></span>
+                        faire une liste de tâches
+                    </label>
+                </div>
+                <!-- Task 1 -->
+
+                <div class="task">
+                    <input type="checkbox" id="task-2">
+                    <label for="task-2">
+                        <span class="custom-checkbox"></span>
+                        deuxième tâche
+                    </label>
+                </div>
+                <!-- Task 2 -->
+
+                <div class="task">
+                    <input type="checkbox" id="task-3">
+                    <label for="task-3">
+                        <span class="custom-checkbox"></span>
+                        une troisième !
+                    </label>
+                </div>
+                <!-- Task 3 -->
+            </div>
+
+            <div class="new-task-creator">
+                <form action="">
+                    <input type="text" class="new list" placeholder="Nouvelle tâche" aria-label="Nouvelle tâche">
+                    <button class="btn task" aria-label="Créer nouvelle tâche">+</button>
+                </form>
+            </div>
+
+            <div class="delete-stuff">
+                <button class="btn delete">Nettoyer la liste</button>
+                <button class="btn delete">Supprimer la liste</button>
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

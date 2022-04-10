@@ -1,0 +1,118 @@
+:root {
+  --color-primary: #565595;
+  --color-light: #f4f4f4;
+  --color-dark: #333;
+  --color-warning: #550000;
+}
+
+*, *::before, *::after {
+  font-family: inherit;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  display: -ms-grid;
+  display: grid;
+  grid: "header header header header" auto "...... lists active ......" auto/1fr minmax(100px, 300px) minmax(250px, 500px) 1fr;
+}
+
+.title {
+  grid-area: header;
+  text-align: center;
+  font-size: calc(5vw + 2rem);
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+  margin: -.2rem 0 .5rem 0;
+}
+
+.all-tasks {
+  grid-area: lists;
+}
+
+.task-list {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  list-style: circle;
+  padding-left: 1.1em;
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn {
+  cursor: pointer;
+  background: 0;
+  border: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.btn.create {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: .25rem;
+}
+
+.btn.create:hover {
+  opacity: .7;
+  -webkit-transition: opacity 150ms ease-in;
+  transition: opacity 150ms ease-in;
+}
+
+.new {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  border-bottom: 1px solid currentColor;
+  font-size: inherit;
+  outline: none;
+  -webkit-transition: border-bottom 150ms ease-in;
+  transition: border-bottom 150ms ease-in;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+.new.list {
+  font-size: 1.2rem;
+}
+
+.new:focus {
+  border-bottom-width: 3px;
+}
+
+.new:focus::-webkit-input-placeholder {
+  opacity: .2;
+}
+
+.new:focus:-ms-input-placeholder {
+  opacity: .2;
+}
+
+.new:focus::-ms-input-placeholder {
+  opacity: .2;
+}
+
+.new:focus::placeholder {
+  opacity: .2;
+}
+
+.active-list {
+  font-weight: 700;
+}
+
+.todo-list {
+  grid-area: active;
+}
+/*# sourceMappingURL=style.css.map */

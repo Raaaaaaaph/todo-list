@@ -44,6 +44,14 @@ body {
   padding-left: 1.1em;
 }
 
+.list-name {
+  cursor: pointer;
+}
+
+.list-name:hover {
+  opacity: .7;
+}
+
 form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -62,12 +70,23 @@ form {
   font-size: 1.5rem;
   font-weight: 900;
   margin-right: .25rem;
+  -webkit-transition: opacity 150ms ease-in;
+  transition: opacity 150ms ease-in;
 }
 
 .btn.create:hover {
   opacity: .7;
-  -webkit-transition: opacity 150ms ease-in;
-  transition: opacity 150ms ease-in;
+}
+
+.btn.delete {
+  opacity: .7;
+  font-size: 1rem;
+  -webkit-transition: color 200ms;
+  transition: color 200ms;
+}
+
+.btn.delete:hover {
+  color: var(--color-warning);
 }
 
 .new {
@@ -77,6 +96,7 @@ form {
   border-bottom: 1px solid currentColor;
   font-size: inherit;
   outline: none;
+  padding: .25em;
   -webkit-transition: border-bottom 150ms ease-in;
   transition: border-bottom 150ms ease-in;
   -webkit-box-ordinal-group: 3;
@@ -84,8 +104,28 @@ form {
           order: 2;
 }
 
+.new::-webkit-input-placeholder {
+  opacity: .4;
+}
+
+.new:-ms-input-placeholder {
+  opacity: .4;
+}
+
+.new::-ms-input-placeholder {
+  opacity: .4;
+}
+
+.new::placeholder {
+  opacity: .4;
+}
+
 .new.list {
   font-size: 1.2rem;
+}
+
+.new.task {
+  margin-bottom: 0;
 }
 
 .new:focus {
@@ -93,19 +133,19 @@ form {
 }
 
 .new:focus::-webkit-input-placeholder {
-  opacity: .2;
+  opacity: .15;
 }
 
 .new:focus:-ms-input-placeholder {
-  opacity: .2;
+  opacity: .15;
 }
 
 .new:focus::-ms-input-placeholder {
-  opacity: .2;
+  opacity: .15;
 }
 
 .new:focus::placeholder {
-  opacity: .2;
+  opacity: .15;
 }
 
 .active-list {
@@ -113,6 +153,147 @@ form {
 }
 
 .todo-list {
+  --spacer: 2rem;
   grid-area: active;
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+
+.todo-header {
+  padding: var(--spacer);
+  background: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.list-title {
+  margin: 0 1em 0 0;
+}
+
+.task-count {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.todo-body {
+  padding: var(--spacer);
+  position: relative;
+}
+
+.new-task-creator .create {
+  color: var(--color-primary);
+}
+
+[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+}
+
+.task label {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.task {
+  position: relative;
+  margin-bottom: 1.25em;
+}
+
+.task::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: -0.5em;
+  height: 1px;
+  background: currentColor;
+  opacity: .1;
+}
+
+.custom-checkbox {
+  --size: .75em;
+  display: inline-block;
+  margin-right: var(--size);
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: -webkit-transform 200ms ease-in-out;
+  transition: -webkit-transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out;
+  transition: transform 200ms ease-in-out, -webkit-transform 200ms ease-in-out;
+}
+
+.task:hover .custom-checkbox,
+[type="checkbox"]:focus + label .custom-checkbox {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  color: var(--color-primary);
+}
+
+[type="checkbox"]:checked + label .custom-checkbox {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  -webkit-box-shadow: inset 0 0 0 2px white;
+          box-shadow: inset 0 0 0 2px white;
+}
+
+[type="checkbox"]:checked + label {
+  opacity: .5;
+}
+
+.task label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  left: 1.4em;
+  top: 50%;
+  height: 3px;
+  background: currentColor;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: right;
+          transform-origin: right;
+  -webkit-transition: -webkit-transform 150ms ease-in-out;
+  transition: -webkit-transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out;
+  transition: transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+}
+
+[type="checkbox"]:checked + label::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transform-origin: left;
+          transform-origin: left;
+}
+
+.delete-stuff {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -35px;
+  color: var(--color-light);
 }
 /*# sourceMappingURL=style.css.map */

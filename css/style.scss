@@ -1,5 +1,5 @@
 :root {
-    --color-primary: #565595;
+    --color-primary: #343477;
     --color-light: #f4f4f4;
     --color-dark: #333;
     --color-warning: #550000;
@@ -127,6 +127,8 @@ form {
     grid-area: active;
     background: var(--color-light);
     color: var(--color-dark);
+    box-shadow: 5px 5px 5px currentColor;
+    border-radius: 15px;
 }
 
 .todo-header {
@@ -135,6 +137,7 @@ form {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-radius: 15px 15px 0 0;
 }
 
 .list-title {
